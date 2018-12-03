@@ -1,6 +1,15 @@
 module.exports = async function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
 
+    //Setup dates etc.
+
+    //send image to Face API
+
+    //Determine the emotion detected
+
+    //Add to a counter in CosmosDB
+
+
     if (req.query.name || (req.body && req.body.name)) {
         context.res = {
             // status: 200, /* Defaults to 200 */
