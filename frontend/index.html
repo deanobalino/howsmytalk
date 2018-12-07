@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Vote with your face!</title>
+    <link rel="stylesheet" href="./app.css" />
+    <link
+      rel="stylesheet"
+      href="https://code.getmdl.io/1.3.0/material.light_blue-blue.min.css"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/css?family=Bangers" rel="stylesheet"> 
+  </head>
+
+  <body>
+    <div class="app">
+        <h3 class="heading">🙃 Vote with your face! 🙃 </h3>
+        <div class="">
+            <div class="">
+                <div>                    
+                    <div class="">
+                      <div class="startApp">
+                          <button
+                          id="button"
+                          class="mdl-button mdl-js-button mdl-button--primary"
+                        >
+                          Touch here to start Camera
+                        </button>
+                      </div>
+                      
+                      <div id="videoDiv" class="video">
+                        <video id="video" autoplay playsinline></video> <img id="snap" />
+                        <!-- Hidden canvas element. Used for taking snapshot of video. -->
+                        <canvas></canvas>
+                        <button
+                               id="delete-photo"
+                               class="mdl-button mdl-js-button mdl-button--icon"
+                               style="color:  #3399ff"
+                             >
+                               <i class="material-icons">delete</i>
+                             </button>
+                             
+                             <button 
+                               id="take-photo"
+                               class="mdl-button mdl-js-button mdl-button--icon" 
+                               style="color:  #3399ff"
+                             >
+                               <i class="material-icons">camera_enhance</i>
+                             </button>
+                             
+                             <button
+                               id="submit-img"
+                               class="mdl-button mdl-js-button mdl-button--icon"
+                               style="color:  #3399ff"
+                             >
+                             <i class="material-icons">done</i>
+                             </button>
+                             <button
+                               id="select-cam"
+                               class="mdl-button mdl-js-button mdl-button--icon"
+                               style="color:  #3399ff"
+                             >
+                               <i class="material-icons">autorenew</i>
+                             </button>
+                        <div id="controlDiv" class="controls">
+                        
+                            <!--  <select id="select" class="">
+                               <option></option>
+                             </select> -->
+                             
+                           </div>
+                      </div>
+            
+                      <div id="submitDiv" class="submit">
+                        
+                      </div>
+                    </div>
+            
+                    <div class="m">
+                      <div class="results material-elevation mdc-elevation--z4 mdc-elevation-transition">
+                        <h4 id="face-error"></h4>
+                        <h4 id="success"></h4>
+                        <h4 id="emotion"></h4>
+                        <h4 id="age"></h4>
+                        <h4 id="gender"></h4>
+                        <h4 id="glasses"></h4>
+                        <h4 id="dashboardLink"></h4>
+                        <button
+                          id="refresh"
+                          class="mdl-button mdl-js-button mdl-button--primary"
+                        >
+                          Go back to Camera
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            
+          </div>
+          <footer>
+           <p> Created by <a href="https://twitter.com/deanbryen?lang=en">Dean Bryen</a>. Find the source code on Github <a href="https://github.com/deanobalino">here</a>. Images are not stored, only insights obtained from the Microsoft Azure Face API.</p>
+          </footer>
+    </div>
+    
+
+    <script src="./app.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </body>
+</html>
