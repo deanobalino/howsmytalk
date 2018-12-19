@@ -17,13 +17,13 @@
       "name": "res"
     },
     {
-      "name": "faceDocument",
+      "name": "faceDocuments",
       "type": "cosmosDB",
+      "direction": "in",
       "databaseName": "howsmytalk",
       "collectionName": "faces",
-      "createIfNotExists": true,
-      "connectionStringSetting": "COSMOS_DB_CONNECTION_STRING",     
-      "direction": "out"
+      "sqlQuery": "SELECT * from c where c.date = {date} and c.speaker = {speaker}",
+      "connectionStringSetting": "COSMOS_DB_CONNECTION_STRING"
   }
   ]
 }

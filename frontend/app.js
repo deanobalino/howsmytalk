@@ -122,14 +122,24 @@ select_cam.addEventListener('click', event => {
       console.error(error);
     });
 });
-
+function getParameterByName(name, url) {
+  if (!url) url = window.location.href;
+  name = name.replace(/[\[\]]/g, '\\$&');
+  var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+      results = regex.exec(url);
+  if (!results) return null;
+  if (!results[2]) return '';
+  return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
 submit_img.addEventListener('click', event => {
   //snap is the image uri
-  // convert snap to base64? or even to a Blob?
   const apiUri = "https://howsmytalk.azurewebsites.net/api/submitPicture"
   //const apiUri = "http://localhost:7071/api/submitPicture"
-
-  axios.post(apiUri, dataURI)
+  const reqBody = {
+    "dataURI" : dataURI,
+    "speaker" : getParameterByName('speaker')
+  }
+  axios.post(apiUri, reqBody)
   .then(function (response) {
     //console.log(response);
     //hide the camera after submitting image
@@ -151,7 +161,8 @@ submit_img.addEventListener('click', event => {
     document.getElementById("age").innerHTML = "🎂 Age: " + response.data.age;
     document.getElementById("gender").innerHTML = "⚥ Gender: " + response.data.gender;
     document.getElementById("glasses").innerHTML = "🤓 Glasses: " + response.data.glasses;
-    document.getElementById("dashboardLink").innerHTML = `📊 Check out the dashboard <a href="https://aka.ms/ratemytalkdashboard" target="_blank">here</a>! 📈`;
+    document.getElementById("facialHair").innerHTML = "🧔🏻 Beard: " + response.data.facialHair;
+    document.getElementById("dashboardLink").innerHTML = `📊 Check out the dashboard <a href="https://howsmytalkdashboard.z6.web.core.windows.net/?speaker=${reqBody.speaker}" target="_blank">here</a>! 📈`;
     refresh.style.display = "inline-block";
     return response
     }

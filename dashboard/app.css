@@ -1,0 +1,30 @@
+.btn-xl {
+    padding: 18px 28px;
+    font-size: 22px;
+    border-radius: 8px;
+}
+
+
+#title {
+    font-family: 'Bangers', cursive;
+    color: #3399ff;
+  }
+  #age {
+    
+    color: #ffffff;
+  }
+  #minAge {
+    
+    color: #ffffff;
+  }
+  #maxAge {
+
+    color: #ffffff;
+  }
+  #totalResponses {
+
+    color: #ffffff;
+  }
+  .h2 {
+    color: #ffffff;
+  }
